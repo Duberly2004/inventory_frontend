@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    :root {
+      font-family: Arial, Helvetica, sans-serif;
+        --primary: 159, 91%, 39%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+    }
+}
+body{
+    background-color: #020202;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;  
+    padding-left: 20px; 
+  }
+  li {
+    margin-bottom: 8px; 
+    color: #333;       
+  }
+  
+  h1 {
+    @apply text-4xl font-bold mb-4;
+  }
+  
+  h2 {
+    @apply text-3xl font-bold mb-3;
+  }
+  
+  h3 {
+    @apply text-2xl font-bold mb-3;
+  }
+  
+  h4 {
+    @apply text-xl font-bold mb-2;
+  }
+  
+  h5 {
+    @apply text-lg font-bold mb-2;
+  }
+  ol {
+    list-style-type: decimal;
+    margin-left: 0;
+    padding-left: 2rem;
+  }
+  
+  ol li {
+    list-style-position: inside;
+    margin-bottom: 0.5rem;
+  }
