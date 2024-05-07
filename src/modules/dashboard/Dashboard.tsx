@@ -1,10 +1,8 @@
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Data } from "../../data";
 import { BarChart } from "../../components/Chart";
-import { PieChart } from "../../components/Chart";
-import { LineChart } from "../../components/Chart";
 import RecentSales from "./RecentSales";
 import SummaryCard from "../../components/cards/SummaryCard";
 Chart.register(CategoryScale);
@@ -50,6 +48,11 @@ export default function Dashboard() {
     ]
   });
 
+  useEffect(()=>{
+    if(1 != 1){
+      setChartData(chartData)
+    }
+  },[])
   return (
     <section>
       <h4>DASHBOARD</h4>

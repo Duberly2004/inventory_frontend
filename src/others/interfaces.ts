@@ -6,6 +6,7 @@ export interface ILogin {
 }
 export interface IUser extends ILogin {
     name:string
+    url_avatar:string
 }
 export interface IAuth  extends IUser{
     access_token:string
@@ -14,6 +15,13 @@ export interface IAuth  extends IUser{
 export interface IItem {
     name: string
     path: string
+}
+export interface ICategory {
+    name:string
+    color:string
+}
+export interface ILCategory extends ICategory{
+    _id: string
 }
 
 export interface IProduct {

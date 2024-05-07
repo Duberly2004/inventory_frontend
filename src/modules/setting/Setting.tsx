@@ -47,12 +47,12 @@ export default function Setting() {
   };
 
   return (
-    <section>
+    <section >
       <div className='h-28'>
 
       </div>
       <Box
-        sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 400 }}
+        sx={{ flexGrow: 1, display: 'flex', height: 400 }}
       >
         <Tabs
           orientation="vertical"

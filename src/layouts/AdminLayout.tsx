@@ -5,6 +5,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import { useDispatch } from 'react-redux';
 import { logout } from '../store/auth';
+import { Toaster } from 'sonner';
 interface IMenuItem{
   icon:React.ReactNode
   text:string
@@ -20,9 +21,10 @@ export default function AdminLayout() {
 
   return (
     <section className="flex gap-2 h-svh text-white">
+      <Toaster richColors/>
       <Sidebar backgroundColor="black" toggled collapsed={open}>
         <div className='flex my-4 flex-col justify-center text-center'>
-          <img className='w-24 m-auto' src={logo} alt="Inventory Image" />
+          <img className='w-16 m-auto' src={logo} alt="Inventory Image" />
           <p>INVENTORY</p>
           </div>
         <Menu>
