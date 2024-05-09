@@ -1,4 +1,4 @@
-# Frontend for proyect inventory
+# Frontend for inventory project
 
 <div style="display: flex; justify-content: center;">
   <img src="public/vite.svg" alt="Logo Vite" style="width: 100px;" />
