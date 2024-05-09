@@ -26,12 +26,17 @@ export interface ILCategory extends ICategory{
 
 export interface IProduct {
     name:string
+    stock:number
     description:string
     price:number
-    status:boolean
-    category_id:number
+    status:string
+    category_id:string
     url_image:string
 }
+export interface ILProduct extends IProduct {
+    _id:string
+    category:ILCategory
+} 
 
 //Interface Dashboard
 export interface IRecentSale {

@@ -1,5 +1,10 @@
 # Frontend for proyect inventory
 
+<div style="display: flex; justify-content: center;">
+  <img src="public/vite.svg" alt="Logo Vite" style="width: 100px;" />
+</div>
+
+## Preview
 <img src="public/preview.png"/>
 
 ## Modules

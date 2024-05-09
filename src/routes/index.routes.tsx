@@ -8,6 +8,9 @@ import AdminLayout from "../layouts/AdminLayout";
 import Dashboard from "../modules/dashboard/Dashboard";
 import Setting from "../modules/setting/Setting";
 import Inventory from "../modules/product/Inventory";
+import Sale from "../modules/sales/Sale";
+import SaleForm from "../modules/sales/SaleForm";
+import Products from "../pages/Products";
 function AppRoutes() {
   const element = useRoutes([
     {
@@ -20,7 +23,7 @@ function AppRoutes() {
     },
     {
       path: "products",
-      element: <PublicLayout><Inventory /></PublicLayout>
+      element: <PublicLayout><Products /></PublicLayout>
     },
     {
       path: "about",
@@ -37,6 +40,14 @@ function AppRoutes() {
         {
           path: "inventory",
           element:<Inventory/>
+        },
+        {
+          path: "sales",
+          element:<Sale/>
+        },
+        {
+          path: "sales/new",
+          element:<SaleForm/>
         },
         {
           path: "settings",

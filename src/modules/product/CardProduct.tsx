@@ -4,15 +4,34 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { IProduct } from '../../others/interfaces';
+import { ILProduct } from '../../others/interfaces';
+import { deleteProduct } from '../../services/admin.service';
+import { toast } from 'sonner';
+import { useQueryClient } from 'react-query';
 interface Props{
-    product: IProduct
+    product: ILProduct
+    setProductEdit:(product:ILProduct)=>void
+    setOpen:(product:boolean)=>void
 }
-export default function CardProduct({product}:Props) {
+export default function CardProduct({product,setProductEdit,setOpen}:Props) {
+  const queryClient = useQueryClient()
+  const handleDelete = async () => {
+    const isYes = confirm(`Are you sure you delete the ${product.name} product?`)
+    if (isYes) {
+      try {
+        await deleteProduct(product._id)
+        toast.success("Successful operation")
+      } catch (error) {
+        toast.error("An error occurred")
+      } finally {
+        queryClient.invalidateQueries({ queryKey: "products" });
+      }
+    }
+  }
   return (
     <Card sx={{ maxWidth: 330,background:"transparent" }}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 250 }}
         image={product.url_image}
         title={product.name}
       />
@@ -20,13 +39,20 @@ export default function CardProduct({product}:Props) {
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <div>
             {product.description}
-        </Typography>
+            <div className='flex flex-wrap w-full gap-1 mt-2'>
+              <p className='text-white rounded-lg px-2 text-sm' style={{backgroundColor:product.category.color}}>{product.category.name}</p>
+            </div>
+        </div>
       </CardContent>
       <CardActions>
-        <Button size="small">delete</Button>
-        <Button size="small">Learn More</Button>
+        <Button onClick={()=>handleDelete()} size="small" sx={{color:"red"}}>delete</Button>
+        <Button onClick={()=>{
+          setOpen(true)
+          setProductEdit(product)
+        }} size="small">Edit</Button>
+        <Button variant='outlined' color='success' size="small">{product.status}</Button>
       </CardActions>
     </Card>
   );

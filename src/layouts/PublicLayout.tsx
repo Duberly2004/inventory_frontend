@@ -6,7 +6,7 @@ interface Props {
 }
 export default function PublicLayout({children}:Props) {
   return (
-    <div className="h-svh dark:text-white">
+    <div className="h-svh dark:text-white overflow-y-auto">
       <PublicNavbar/>
       <Toaster richColors />
       {children}

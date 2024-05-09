@@ -9,7 +9,7 @@ export default function Category() {
   return (
     <div>
       <DrawerComponent 
-      element={<Button size='small' variant='contained' onClick={()=>setOpen(true)}>New Category</Button>}
+      element={<Button size='small' variant='outlined' onClick={()=>setOpen(true)}>New Category</Button>}
       children={<CategoryForm setOpen={setOpen}/>}
       open={open}
       setOpen={setOpen}
