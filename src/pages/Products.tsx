@@ -8,8 +8,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { ILProduct } from "../others/interfaces";
-import { CardActions } from "@mui/material";
+import {  IProductDetail } from "../others/interfaces";
+import { Avatar, CardActions, CardHeader } from "@mui/material";
 import start from '../assets/start.png'
 import { toast } from "sonner";
 export default function Products() {
@@ -24,8 +24,17 @@ export default function Products() {
         <Button variant="contained" color="success"><Search /></Button>
       </div>
       <div className="flex flex-wrap gap-8 justify-center ">
-        {data.map((product: ILProduct, index: number) => (
+        {data.map((product: IProductDetail, index: number) => (
           <Card key={index} sx={{ maxWidth: 330, background: "transparent" }}>
+            <CardHeader
+              avatar={
+                <Avatar src={product?.category?.user?.url_avatar} aria-label="user Avatar">
+                  R
+                </Avatar>
+              }
+              title={product.category.user.name}
+              subheader="Mayo 09, 2024"
+            />
             <CardMedia
               sx={{ height: 250 }}
               image={product.url_image}
@@ -43,7 +52,7 @@ export default function Products() {
               </div>
             </CardContent>
             <CardActions>
-              <Button onClick={()=>toast.success('Tu pedido llega en 2 minutos')} variant="outlined" color="warning">buy now</Button>
+              <Button onClick={() => toast.success('Tu pedido llega en 2 minutos')} variant="outlined" color="warning">buy now</Button>
               <div className="flex">
                 <img className="w-6" src={start} alt="start" />
                 <img className="w-6" src={start} alt="start" />
@@ -52,7 +61,7 @@ export default function Products() {
                 <img className="w-6" src={start} alt="start" />
               </div>
             </CardActions>
-          </Card> 
+          </Card>
         ))}
       </div>
     </section>

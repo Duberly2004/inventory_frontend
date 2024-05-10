@@ -37,7 +37,19 @@ export interface ILProduct extends IProduct {
     _id:string
     category:ILCategory
 } 
-
+export interface IProductDetail extends IProduct {
+    _id:string
+    category: {
+        _id: string
+        name:string
+        color:string
+        user:{
+            _id: string
+            name:string
+            url_avatar:string
+        }
+    }
+} 
 //Interface Dashboard
 export interface IRecentSale {
     name:string
